@@ -7,12 +7,8 @@
     font-style: italic;
 }
 
-a {
+nav a {
     text-decoration: none;
-}
-
-.pipi {
-    color: #b87400 #001626 linear-gradient(145deg, #000020, #b87400);
 }
 
 body {
@@ -34,7 +30,6 @@ header {
     background-color: #b87400;
     text-align: center;
     border-radius: 20vh;
-    transition: 1s;
     box-shadow: 10px 10px 16px #000000;
     height: 80px;
     margin: 20px;
@@ -43,56 +38,47 @@ header {
 }
 
 header img {
-    width: 28px;
+    width: 30px;
 
+}
+
+nav {
+    position: fixed;
+    z-index: 9999;
+    margin-left: 10px;
+    width: 30px;
 }
 
 nav ul {
-    position: fixed;
-    margin-left: 4px;
-    margin-top: 0px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 0px);
+    grid-template-rows: min-content;
     list-style: none;
-    z-index: 9999;
     gap: 6px;
     border-radius: 10vh;
-    padding: 3px;
+    transition: 1.3s;
+    padding: 8px;
+}
 
-
-
-
+nav ul:hover {
+    grid-template-columns: repeat(3, 40px);
+    width: min-content;
 }
 
 nav li {
-    background-color: #ffffffaf;
-    border-radius: 20px;
     align-content: center;
     transition: 0.3s;
-    box-shadow: 4px 4px 16px #000000;
 }
 
-
-
-nav a {
-    margin: 2px;
-    padding: 4px;
+nav li:not(#inicio) {
+    overflow: hidden;
 }
+
 
 nav li:hover {
     transform: scale(1.03);
 }
 
-#inicio {
-    border: solid 2px #000000;
-}
-
-#paginas {
-    border: solid 2px #000000;
-}
-
-#contrato {
-    border: solid 2px #000000;
-}
 
 
 .nx {
@@ -257,7 +243,7 @@ footer {
     display: flex;
 
     flex-direction: column;
-    background-image: url(media/nosotros.jpg);
+    background-image: url(media/foot.png);
     background-repeat: no-repeat;
     border: #000020 solid 2px;
     height: 300px;
@@ -343,15 +329,30 @@ footer {
 @media(min-width:600px) {
     header {
         height: 140px;
+        transition: 1.9s;
     }
 
     header img {
         width: 80px;
     }
 
+    nav {
+        width: 82px;
+
+
+    }
+
+    nav:hover {
+        width: max-content;
+    }
+
     nav ul {
-        gap: 10px;
+        gap: 40px;
         padding: 10px;
+    }
+
+    nav ul:hover {
+        grid-template-columns: repeat(3, 80px);
     }
 
     nav img {
@@ -363,7 +364,13 @@ footer {
         margin-right: 20px;
     }
 
+    .pregunta {
+        grid-template-rows: max-content;
+    }
 
+    .img img {
+        width: 300px;
+    }
 
     .index_2 {
         font-size: 26px;
@@ -388,7 +395,7 @@ footer {
     }
 
     footer {
-        height: 600px;
+        height: 500px;
     }
 
     .pata {
