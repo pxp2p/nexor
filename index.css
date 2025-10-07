@@ -15,26 +15,41 @@ body {
 }
 
 header {
+    transition: 1.2s;
+
     align-items: center;
 }
 
 header img {
+
     width: 30px;
 }
 
 nav ul {
-    background-color: violet;
+    list-style: none;
+    background-color: #444444ad;
+    border: solid 1px #fff;
+    border-radius: 4vh;
+    padding: 3px;
     display: flex;
     flex-direction: column;
     width: min-content;
     height: 30px;
     overflow: hidden;
     position: fixed;
+    margin: 10px;
+    row-gap: 20px;
+    transition: 1.2s;
 }
 
 nav ul:hover {
-    overflow: visible;
-    height: max-content;
+    height: 320px;
+    transition: 1.2s;
+
+}
+
+.h1 {
+    margin-bottom: 40px;
 }
 
 h1 {
