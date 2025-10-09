@@ -34,11 +34,12 @@ nav ul {
     background-color: #444444ad;
     border: solid 1px #fff;
     border-radius: 4vh;
-    padding: 3px;
+    padding: 6px;
     display: flex;
     flex-direction: column;
     width: min-content;
     height: 30px;
+    width: 30px;
     overflow: hidden;
     position: fixed;
     margin: 10px;
@@ -48,8 +49,21 @@ nav ul {
 
 nav ul:hover {
     height: 320px;
+    width: 140px;
     transition: 1.2s;
 
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    transition: 0.4s;
+}
+
+nav a:hover {
+    transform: scale(1.04);
+    background-color: black;
+    border-radius: 2vh;
 }
 
 .h1 {
@@ -134,12 +148,14 @@ footer {
     }
 
     nav ul {
+        width: 60px;
         margin: 18px;
         height: 60px;
     }
 
     nav ul:hover {
         height: 500px;
+        width: 200px;
     }
 
     .h1 {
@@ -173,17 +189,14 @@ footer {
 .grid {
     display: grid;
     grid-template-columns: max-content;
-    grid-template-rows: 50px 260px 260px 260px 50px 260px 260px 260px 50px 260px 260px 260px;
+    grid-template-rows: 260px 260px 260px 260px 260px 260px 260px 260px 260px;
     grid-template-areas:
-        "titulo0"
         "foto1"
         "foto2"
         "foto3"
-        "titulo"
         "foto4"
         "foto5"
         "foto6"
-        "titulo2"
         "foto7"
         "foto8"
         "foto9";
@@ -206,29 +219,7 @@ footer {
     margin: 10px;
 }
 
-.titulo0 {
-    grid-area: titulo0;
-    background-color: #000020;
-    border-radius: 4vh;
-    box-shadow: 10px 10px 16px #02023d;
 
-}
-
-.titulo {
-    grid-area: titulo;
-    background-color: #000020;
-    border-radius: 4vh;
-    box-shadow: 10px 10px 16px #02023d;
-
-}
-
-.titulo2 {
-    grid-area: titulo2;
-    background-color: #000020;
-    border-radius: 4vh;
-    box-shadow: 10px 10px 16px #02023d;
-
-}
 
 .pag1 {
     grid-area: foto1;
@@ -344,14 +335,11 @@ footer {
 @media (min-width: 600px) {
     .grid {
         grid-template-areas:
-            "titulo0 titulo0 titulo0"
             "foto1 foto2 foto3"
-            "titulo titulo titulo"
             "foto4 foto5 foto6"
-            "titulo2 titulo2 titulo2"
             "foto7 foto8 foto9";
         grid-template-columns: 3fr 3fr 3fr;
-        grid-template-rows: 50px 260px 50px 260px 50px 260px;
+        grid-template-rows: 260px 260px 260px;
         margin: 20px;
 
     }
@@ -385,7 +373,7 @@ footer {
 /*CONTRATO===========================================================================================================*/
 .contrato {
     background-color: #000000;
-    margin: 80px;
+    margin: 20px;
     margin-top: 20px;
     padding: 40px;
     border-radius: 8vh;
@@ -400,6 +388,10 @@ footer {
 }
 
 @media(min-width:600px) {
+    .contrato {
+        margin: 100px;
+    }
+
     .contrato p {
         font-size: 30px;
     }
@@ -525,4 +517,77 @@ footer {
 
 
     }
+}
+
+/*CONTACTO=======================================================================================================*/
+.contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    margin-bottom: 100px;
+}
+
+.igluk {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: -8px 0px 20px #fff;
+    border-radius: 8vh;
+    border: #000000 solid 1px;
+    transition: 0.4s;
+
+}
+
+.igluk:hover {
+    transform: scale(1.2);
+    border: solid 10px #000000;
+}
+
+.igluk a {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+.igluk img {
+    width: 200px;
+}
+
+.igluk p {
+    color: #000000;
+    font-size: 40px;
+    font-style: normal;
+
+}
+
+.igjoa {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 8px 0px 20px #fff;
+    border-radius: 8vh;
+    border: #000000 solid 1px;
+    transition: 0.4s;
+}
+
+.igjoa:hover {
+    transform: scale(1.2);
+    border: solid 10px #000000;
+}
+
+.igjoa a {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+.igjoa img {
+    width: 200px;
+}
+
+.igjoa p {
+    color: #000000;
+    font-size: 40px;
+    font-style: normal;
 }
