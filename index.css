@@ -103,6 +103,18 @@ h1 {
     align-content: center;
 }
 
+@keyframes aparecer {
+    0% {
+        opacity: 0%;
+        transform: translateY(800px);
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateY(0px);
+    }
+}
+
 .contactanos {
     grid-area: cn;
     font-size: 18px;
@@ -110,13 +122,24 @@ h1 {
     padding: 3px;
     border: solid 2px white;
     border-radius: 6VH;
+    transition: 4s;
     align-content: center;
+    animation: aparecer linear both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 10%;
 }
 
 
 .img {
     grid-area: img;
     text-align: center;
+    transition: 4s;
+    align-content: center;
+    animation: aparecer linear both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 10%;
 }
 
 .img img {
@@ -159,7 +182,7 @@ footer {
     }
 
     .h1 {
-        margin-bottom: 80px;
+        margin-bottom: 0px;
     }
 
     .h1 h1 {
@@ -169,7 +192,7 @@ footer {
 
 
     .pregunta {
-        grid-template-rows: 100px repeat(3, 250px) 100px;
+        grid-template-rows: 100px repeat(2, 150px) 300px 100px;
     }
 
     .queres {
@@ -589,6 +612,37 @@ footer {
 .igjoa p {
     color: #000000;
     font-size: 40px;
-    background-color: #2d2d2e;
     font-style: normal;
+}
+
+.waths {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 8px 0px 20px #fff;
+    border-radius: 8vh;
+    border: #000000 solid 1px;
+    transition: 0.4s;
+}
+
+.waths:hover {
+    transform: scale(1.2);
+    border: solid 10px #000000;
+}
+
+.waths a {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    text-align: center;
+}
+
+.waths img {
+    width: 200px;
+}
+
+.waths p {
+    color: #000000;
+    font-size: 40px;
+    font-style: normal;
+
 }
