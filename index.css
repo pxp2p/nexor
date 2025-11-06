@@ -508,6 +508,7 @@ footer {
     padding: 18px;
     font-size: 18px;
     letter-spacing: 1px;
+    color: #000000;
 
 }
 
@@ -537,8 +538,6 @@ footer {
 
     .index_2 {
         margin: 40px;
-
-
     }
 }
 
