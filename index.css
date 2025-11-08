@@ -29,6 +29,10 @@ header img {
     width: 30px;
 }
 
+nav {
+    z-index: 9999;
+}
+
 nav ul {
     list-style: none;
     background-color: #444444ad;
@@ -104,13 +108,29 @@ h1 {
 }
 
 @keyframes aparecer {
+
     0% {
         opacity: 0%;
         transform: translateY(800px);
     }
 
+    25% {
+        opacity: 25%;
+        transform: translateY(600px);
+    }
+
+    50% {
+        opacity: 50%;
+        transform: translateY(400px);
+    }
+
+    75% {
+        opacity: 75%;
+        transform: translateY(200px);
+    }
+
     100% {
-        opacity: 100%;
+        opacity: 1;
         transform: translateY(0px);
     }
 }
@@ -122,8 +142,8 @@ h1 {
     padding: 3px;
     border: solid 2px white;
     border-radius: 6VH;
-    transition: 4s;
     align-content: center;
+    transition: 4s;
     animation: aparecer linear both;
     view-timeline-name: --mos;
     animation-timeline: --mos;
@@ -150,7 +170,7 @@ footer {
     background-color: #000000;
     border-top-left-radius: 3vh;
     border-top-right-radius: 3vh;
-    margin-top: 600px;
+    margin-top: 200px;
 }
 
 .pata {
@@ -277,6 +297,10 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 1s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 3%;
 }
 
 .pag5 {
@@ -285,6 +309,10 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 1s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 3%;
 }
 
 .pag6 {
@@ -293,6 +321,10 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 1s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 3%;
 }
 
 .pag7 {
@@ -301,6 +333,11 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 1s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 10%;
+
 }
 
 .pag8 {
@@ -309,6 +346,11 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 1s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 10%;
+
 }
 
 .pag9 {
@@ -317,6 +359,11 @@ footer {
     text-align: center;
     padding: 8px;
     transition: 0.8s;
+    animation: aparecer alternate both;
+    view-timeline-name: --mos;
+    animation-timeline: --mos;
+    animation-range: cover 0.1% contain 10%;
+
 }
 
 .pag1:hover {
@@ -410,12 +457,23 @@ footer {
     font-size: 16px;
 }
 
+#a__contrato {
+    color: #000000;
+    font-size: 16px;
+    border: solid 2px #000000;
+    border-radius: 2vh;
+}
+
 @media(min-width:600px) {
     .contrato {
         margin: 100px;
     }
 
     .contrato p {
+        font-size: 30px;
+    }
+
+    #a__contrato {
         font-size: 30px;
     }
 }
