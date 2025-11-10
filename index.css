@@ -409,6 +409,55 @@ footer {
     opacity: 1;
 }
 
+@keyframes slide__colum {
+    0% {
+        margin-top: 0px;
+    }
+
+    16% {
+        margin-top: -200px;
+    }
+
+    32% {
+        margin-top: -400px;
+    }
+
+    64% {
+        margin-top: -600px;
+    }
+
+    80% {
+        margin-top: -800px;
+    }
+
+    90% {
+        margin-top: -1000px;
+    }
+
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@media(max-width:600px) {
+    .pagina__web img {
+        width: 400px;
+    }
+
+    #main__paginas {
+        overflow: hidden;
+        margin-bottom: 2000px;
+    }
+
+    .grid {
+        flex-direction: column;
+        margin-top: 200px;
+        animation: slide__colum infinite 18s;
+
+    }
+}
+
 /*CONTRATO===========================================================================================================*/
 .contrato {
     background-color: #000000;
