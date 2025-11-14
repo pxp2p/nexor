@@ -181,9 +181,6 @@ header h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #00000091;
-    border-radius: 100vh 0px 0px 100vh;
-    padding: 20px;
 
 }
 
@@ -204,17 +201,6 @@ header h1 {
 }
 
 /* =======================contrato=====================================================*/
-.imagen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.imagen img {
-    width: 800px;
-
-
-}
 
 .contrato {
     display: flex;
@@ -222,8 +208,8 @@ header h1 {
     justify-content: center;
     margin: 100px;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 6vh;
+    padding: 20px;
+    border-radius: 2vh;
     box-shadow: 0px 0px 100px #7700b7;
 }
 
@@ -236,8 +222,10 @@ header h1 {
 
 @media(max-width:1100px) {
     body {
+        background-color: #0a030e;
         background-size: contain;
         background-position: center;
+        height: 1000px;
     }
 
     header {
@@ -270,27 +258,25 @@ header h1 {
     }
 
     .index__preguntas {
+        grid-template-rows: repeat(5, 120px);
         grid-template-areas:
             "a a a a a"
             ". . . . ."
             ". . . . ."
-            ". . b b b"
-            ". . . . .";
+            ". . . . ."
+            ". . b b .";
     }
 
     .index__preguntas p {
         font-size: 22px;
     }
 
-    .imagen img {
-        width: 200px;
-    }
 
     .contrato {
-        margin: 20px;
+        margin: 30px;
     }
 
     .contrato p {
-        font-size: 18px;
+        font-size: 20px;
     }
 }
