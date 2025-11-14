@@ -225,7 +225,7 @@ header h1 {
         background-color: #0a030e;
         background-size: contain;
         background-position: center;
-        height: 1000px;
+        height: 900px;
     }
 
     header {
@@ -258,7 +258,6 @@ header h1 {
     }
 
     .index__preguntas {
-        grid-template-rows: repeat(5, 120px);
         grid-template-areas:
             "a a a a a"
             ". . . . ."
