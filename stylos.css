@@ -222,9 +222,11 @@ header h1 {
 
 @media(max-width:1100px) {
     body {
+        background: url(media/ChatGPT\ Image\ 15\ nov\ 2025\,\ 10_25_16.png);
         background-color: #0a030e;
-        background-size: contain;
+        background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         height: 900px;
     }
 
