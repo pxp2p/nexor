@@ -7,9 +7,55 @@
     font-family: "Google Sans Code", monospace;
 }
 
+#inicio {
+    background: none;
+    background-color: #000000;
+}
+
+#inicio-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 40px;
+    height: 600px;
+}
+
+#inicio-h1 {
+    font-size: 80px;
+    color: #fff;
+    text-shadow: 0px 0px 60px #7700b7;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#contraseña__buton {
+    width: 400px;
+    height: 60px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 4vh;
+    background-color: #000000;
+    border: solid 1px #fff;
+    color: #fff;
+}
+
+#botoncito {
+    width: 300px;
+    height: 60px;
+    background-color: #7700b7;
+    font-size: 30px;
+    border-radius: 4vh;
+    box-shadow: 0px 0px 20px #fff;
+    border: solid 1px #fff;
+    color: #fff;
+}
+
+
+
+
 body {
     background-color: #000000;
-    background: url(media/fondo.png) #00171b;
+    background: url(media/fondo.png) #000000;
     background-repeat: no-repeat;
     background-size: 1330px;
     background-position-y: -50px;
@@ -224,6 +270,25 @@ header h1 {
 }
 
 @media(max-width:1100px) {
+    #inicio-main {
+        height: 800px;
+    }
+
+    #inicio-h1 {
+        font-size: 50px;
+    }
+
+    #contraseña__buton {
+        width: 300px;
+    }
+
+    #botoncito {
+        width: 200px;
+        font-size: 20px;
+        height: 40px;
+    }
+
+
     body {
         background: url(media/ChatGPT\ Image\ 15\ nov\ 2025\,\ 10_25_16.png);
         background-color: #0a030e;
