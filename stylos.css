@@ -33,11 +33,13 @@
 #contraseña__buton {
     width: 400px;
     height: 60px;
-    font-size: 30px;
+    font-size: 22px;
     text-align: center;
     border-radius: 4vh;
     background-color: #190027;
     border: solid 1px #fff;
+    color: #fff;
+    text-shadow: 0px 0px 16px #a600ff;
 
 }
 
@@ -200,7 +202,7 @@ header h1 {
 }
 
 .index__preguntas p {
-    font-size: 40px;
+    font-size: 36px;
     border-radius: 2vh;
 
     border: solid 4px #fff;
@@ -216,9 +218,10 @@ header h1 {
     grid-area: a;
     display: flex;
     text-align: center;
-
+    animation: rgb infinite;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 @keyframes boton {
@@ -273,8 +276,19 @@ header h1 {
 
 .index__titulo p {
     overflow: hidden;
-    animation: traslate 2s;
+    font-size: 30px;
     transition: 1s;
+    border: solid 1px #fff;
+    animation: rgb infinite 1.8s;
+}
+
+.index__titulo h2 {
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 0px 0px 20px #a600ff;
+    animation: traslate 2s;
+    padding: 10px;
+    border-radius: 2vh;
 }
 
 .index__titulo p:hover {
@@ -309,12 +323,28 @@ header h1 {
 }
 
 /*paginas---0000000000000000-------------*/
+.paginas__div {
+    display: flex;
+    flex-direction: column;
+}
+
+.paginas__div a {
+    font-size: 20px;
+    margin: 20px;
+    display: flex;
+    color: #fff;
+    border-radius: 2vh;
+    border: solid 1px #fff;
+    padding: 10px;
+    width: min-content;
+}
 
 .h1__paginas {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 50px;
+    letter-spacing: 8px;
     margin-top: 20px;
     color: #fff;
     text-shadow: 0px 0px 20px #a600ff;
@@ -377,8 +407,11 @@ header h1 {
         content: "<";
         height: 100px;
         border-radius: 6vh;
-        background-color: #a600ff;
-        border: solid 1px #fff;
+        border: solid 1px #7700b7;
+        font-size: 40px;
+        font-weight: 200;
+        color: #a600ff;
+        text-shadow: 0px 0px 10px #000000;
         left: calc(anchor(left) + 30px);
 
     }
@@ -387,8 +420,11 @@ header h1 {
         content: ">";
         height: 100px;
         border-radius: 6vh;
-        background-color: #a600ff;
-        border: solid 1px #fff;
+        border: solid 1px #7700b7;
+        font-size: 40px;
+        font-weight: 200;
+        color: #a600ff;
+        text-shadow: 0px 0px 10px #000000;
         right: calc(anchor(right) + 60px);
     }
 }
