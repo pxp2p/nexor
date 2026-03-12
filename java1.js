@@ -9,7 +9,4 @@ document.getElementById('botoncito').addEventListener('click', function () {
 });
 
 
-function nombreClick {
-    get
-}
 
