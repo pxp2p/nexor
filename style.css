@@ -1,0 +1,553 @@
+/* --- VARIABLES GLOBALES --- */
+:root {
+    --bg-color: #000000;
+    --accent-violet: #8C52FF;
+    --text-white: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08)
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- CLASES DE UTILIDAD (SEO) --- */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --- HEADER (BEM) --- */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    transform: translateY(-100%); /* Escondido arriba */
+    transition: transform 0.5s ease;
+    opacity: 0;
+    background-color: var(--bg-color);
+}
+
+/* Esta clase la pondrá el JS */
+.header--visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between; /* Empuja elementos a los bordes */
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Menú Hamburguesa */
+.header__menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Área de click más grande para mobile */
+}
+
+.header__menu-icon,
+.header__menu-icon::before,
+.header__menu-icon::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+    position: relative;
+    border-radius: 2px;
+    z-index: 1000;
+    background-color: aqua;
+}
+
+.header__menu-icon::before { transform: translateY(-7px); }
+.header__menu-icon::after { transform: translateY(7px); }
+
+/* Logo del Nav */
+.header__logo-link {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.header__logo-img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.header__spacer {
+    width: 30px; /* Exactamente el mismo ancho que el btn para que el logo quede 100% centrado */
+}
+
+/* --- HERO SECTION (BEM) --- */
+.hero {
+    /* Necesitamos MUCHO espacio para que el scroll tenga recorrido */
+    height: 400vh; 
+    position: relative;
+    background-color: var(--bg-color);
+    opacity: 0.6;
+}
+
+.hero__canvas{
+    mix-blend-mode: screen;
+}
+
+.hero__sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh; /* El canvas se queda pegado mientras scrolleamos los 400vh */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.future {
+    position: relative;
+    background: transparent;
+}
+
+.future__sticky-container {
+    position: sticky;
+    top: 0;
+    height: 300vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra todo verticalmente */
+    align-items: center;
+}
+
+.future__sticky-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 230vh; /* El tamaño del degrade de salida */
+    background: linear-gradient(to top, #000 0%, transparent 100%);
+    z-index: 60; /* Por encima de las partículas y el haz */
+    pointer-events: none;
+}
+
+#future-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Este filtro hace que las partículas brillen como neón */
+}
+
+.future__phrase {
+    display: flex;
+    margin-top: 300px;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.8em;
+    font-family: Oldenburg, sans-serif;
+    text-shadow: 0 0 20px #6e32e680;
+
+}
+
+
+/* --- REVELADO DE SERVICIOS (Grid y Efecto Portal) --- */
+.services-reveal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+}
+
+
+/* --- SERVICE CARD (GLASSMORPHISM BEM) --- */
+.service-card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(15px); /* Efecto vidrio */
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative; /* Para el brillo flotante */
+    overflow: hidden; /* Mantiene el brillo adentro */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    z-index: 10000;
+    
+}
+
+/* El brillo de seguimiento de mouse */
+.service-card__glint {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(140, 82, 255, 0.3) 0%, transparent 70%);
+    opacity: 0; /* Oculto al inicio */
+    pointer-events: none; /* No molesta el click */
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+}
+
+/* Hover effect de la tarjeta */
+.service-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(140, 82, 255, 0.4);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Cuando el mouse está encima, mostramos el brillo */
+.service-card:hover .service-card__glint {
+    opacity: 1;
+}
+
+/* --- BEM Elements --- */
+.service-card__icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(140, 82, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-card__icon i {
+    font-size: 1.6rem;
+    color: var(--accent-violet);
+    filter: drop-shadow(0 0 5px rgba(140, 82, 255, 0.5)); /* Brillo al icono */
+}
+
+.service-card__title {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.service-card__description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* --- PARALLAX --- */
+.introduction__parallax {
+  height: 400px;
+  background-image: url('imagenes/escritorio.png');
+  background-attachment: fixed; /* ACÁ ESTÁ EL EFECTO PARALLAX */
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.introduction__parallax::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* Oscurece un poco para leer el titulo */
+}
+
+.introduction__parallax-title {
+  color: #fff;
+  z-index: 1;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: Barlow, sans-serif;
+}
+
+.projects {
+  padding: 2rem 1rem;
+  background-color: #0f0f0f; 
+}
+
+.projects__title {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.projects__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr; 
+}
+
+/* Card y Efecto */
+.project-card {
+  perspective: 1000px; /* Es rre importante para el efecto 3D */
+}
+
+.project-card__link {
+  display: block;
+  text-decoration: none;
+}
+
+.project-card__wrapper {
+  position: relative;
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.project-card__img {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.footer {
+  background: linear-gradient(180deg, #000000 80%, #2a0a4d 100%);
+  color: #ffffff;
+  padding: 4rem 1.5rem 2rem;
+  font-family: Barlow, sans-serif; 
+}
+
+.footer__container {
+  display: grid;
+  gap: 3rem;
+  text-align: center;
+}
+
+
+.footer__slogan {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.footer__slogan--highlight {
+  color: #a855f7; 
+}
+
+.footer__title {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+
+.footer__link {
+  color: #2a0a4d;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+
+.footer__link:hover {
+  color: #a855f7;
+  text-shadow: 0 0 15px rgba(168, 85, 247, 0.8); 
+  transform: translateY(-5px);
+}
+
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__list-link {
+  color: #ccc;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 4px;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.footer__list-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #a855f7;
+  transition: width 0.3s ease; 
+}
+
+.footer__list-link:hover {
+  color: #fff;
+}
+
+.footer__list-link:hover::after {
+  width: 100%;
+}
+
+
+.footer__bottom {
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+
+
+/*POLITICAS*/
+
+.legal-body {
+    background-color: #000;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+}
+
+.legal {
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    /* Degradado sutil para que no sea solo negro plano */
+    background: linear-gradient(180deg, #000000 0%, #150526 100%);
+}
+
+.legal__container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.legal__back:hover {
+    transform: translateX(-5px);
+    color: #d8b4fe;
+}
+
+.legal__title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+}
+
+.legal__title--highlight {
+    color: #a855f7;
+    text-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+.legal__section {
+    margin-bottom: 2.5rem;
+    border-left: 2px solid #a855f7;
+    padding-left: 1.5rem;
+}
+
+.legal__subtitle {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.legal__text {
+    line-height: 1.7;
+    font-size: 1rem;
+    color: #b0b0b0;
+}
+
+
+
+@media (min-width: 768px) {
+    .header__nav {
+        padding: 0 40px;
+    }
+    
+    .hero__video {
+        max-width: 900px; 
+    }
+
+    .services-reveal {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 2.5rem;
+    }
+
+    .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+  
+    .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+    .footer__socials {
+    justify-content: flex-start;
+  }
+
+    .footer__bottom {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .legal {
+        padding: 6rem 0;
+    }
+    
+    .legal__title {
+        font-size: 3.5rem;
+    }
+    
+    .legal__text {
+        font-size: 1.1rem;
+    }
+}
