@@ -274,7 +274,7 @@ cards.forEach(card => {
     const { offsetWidth: width, offsetHeight: height } = card;
     const { offsetX: x, offsetY: y } = e;
 
-    // Calculamos la rotación (ajusta el 20 para más o menos inclinación)
+    
     const moveX = ((x / width) - 0.5) * 35; 
     const moveY = ((y / height) - 0.5) * -35;
 
@@ -282,7 +282,47 @@ cards.forEach(card => {
   });
 
   card.addEventListener('mouseleave', () => {
-    // Volvemos a la posición original
     card.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
   });
 });
+
+window.addEventListener('load', () => {
+    const destino = document.getElementById('destino-scroll');
+    
+    if (destino) {
+        
+        const targetPosition = destino.getBoundingClientRect().top + window.pageYOffset;
+        
+        smoothScroll(targetPosition, 4000); 
+    }
+});
+
+function smoothScroll(target, duration) {
+    const start = window.pageYOffset;
+    const distance = target - start;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        
+        
+        const run = ease(timeElapsed, start, distance, duration);
+        
+        window.scrollTo(0, run);
+
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animation);
+        }
+    }
+
+    
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
