@@ -293,7 +293,7 @@ window.addEventListener('load', () => {
         
         const targetPosition = destino.getBoundingClientRect().top + window.pageYOffset;
         
-        smoothScroll(targetPosition, 4000); 
+        smoothScroll(targetPosition, 3000); 
     }
 });
 
